@@ -1,0 +1,10 @@
+.container {
+    margin-top: 10%;
+}
+.fond {
+    background-image: url('../../assets/pictures/johnny.png');
+    background-repeat: no-repeat;
+}
+.logo {
+    width: 200px
+}

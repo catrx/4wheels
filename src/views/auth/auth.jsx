@@ -11,18 +11,17 @@ import {
     Row
 } from "reactstrap";
 
-import logo from '../../assets/pictures/logo1.png';
 import './auth.css'
+import Logo from "../../components/logo/logo";
 
 const Auth = () => {
   return (
-      <div className="fond">
     <Container className="container">
       <Row>
         <Col sm="col-sm-12 col-md-5 offset-md-3">
           <Card body>
               <div className="text-center mb-4">
-                  <img src={logo} alt="logo" className="logo" />
+                  <Logo/>
               </div>
               <InputGroup className="mb-4">
                   <InputGroupAddon addonType="prepend">
@@ -42,7 +41,6 @@ const Auth = () => {
         </Col>
       </Row>
     </Container>
-      </div>
   );
 };
 

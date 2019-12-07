@@ -21,25 +21,23 @@ const Auth = () => {
       <Row>
         <Col sm="col-sm-12 col-md-5 offset-md-3">
           <Card body>
-              <div className="text-center">
+              <div className="text-center mb-4">
                   <img src={logo} alt="logo" className="logo" />
               </div>
-              <br/>
-              <InputGroup>
+              <InputGroup className="mb-4">
                   <InputGroupAddon addonType="prepend">
                       <InputGroupText>@</InputGroupText>
                   </InputGroupAddon>
                   <Input placeholder="mail" />
               </InputGroup>
-              <br/>
-              <InputGroup>
+              <InputGroup className="mb-4">
                   <InputGroupAddon addonType="prepend">
                       <InputGroupText>...</InputGroupText>
                   </InputGroupAddon>
                   <Input placeholder="password" />
               </InputGroup>
-              <br/>
-            <Button>Connexion</Button>
+            <Button className="mb-3">Connexion</Button>
+              <a href="#" className="text-center">Vous n'avez pas de compte ?</a>
           </Card>
         </Col>
       </Row>

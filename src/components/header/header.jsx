@@ -9,6 +9,8 @@ import {
     NavItem, NavLink,
     UncontrolledDropdown
 } from "reactstrap";
+import {Link} from "react-router-dom";
+import Logo from "../logo/logo";
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,15 +18,14 @@ export const Header = () => {
     const toggle = () => setIsOpen(!isOpen);
     return (
         <Navbar color="light" light expand="md">
-            <NavbarBrand href="/auth">reactstrap</NavbarBrand>
+            <NavbarBrand tag={Link} to="/index">
+                <Logo size="80"/>
+            </NavbarBrand>
             <NavbarToggler onClick={toggle}/>
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                     <NavItem>
-                        <NavLink href="/products-list">Produits</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                        <NavLink tag={Link} to="/products-list">Produits</NavLink>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav caret>

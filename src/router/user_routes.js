@@ -9,9 +9,10 @@ import Auth from "../views/auth/auth";
 import { Header } from "../components/header/header";
 import Index from "../views/index";
 import { ProductsList } from "../views/products_list/products_list";
+import {Product} from "../views/product/product";
 
 export const UserRoutes = () => {
-  const user = true;
+  const user = true; // en attendant l'authentification
   if (!user) {
     return (
       <Switch>
@@ -30,6 +31,7 @@ const LoggedRoutes = () => {
         <Route path="/auth" component={Auth} />
         <Route path="/index" component={Index} />
         <Route path="/products-list" component={ProductsList} />
+        <Route path="/product/:id" component={Product} />
         <Redirect from="*" to="/index" />
       </Switch>
     </>

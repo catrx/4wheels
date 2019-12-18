@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 import './product_card.css'
 import logo from '../../assets/pictures/wait.png'
+import {Link} from "react-router-dom";
 
 export const ProductCard = ({ product }) => {
   if (!product) {
@@ -26,7 +27,7 @@ export const ProductCard = ({ product }) => {
           <CardTitle>{product.name}</CardTitle>
           <CardSubtitle>{product.price} $</CardSubtitle>
           <CardText>{product.description}</CardText>
-          <CardLink href="#">Card Link</CardLink>
+          <CardLink tag={Link} to={`/product/${product.id}`}>Details</CardLink>
           <CardLink href="#">Another Link</CardLink>
         </CardBody>
       </Card>

@@ -3,26 +3,19 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import {applyMiddleware, createStore} from "redux";
-import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import {Provider} from "react-redux";
 import reducers from "./reducers";
 import reduxThunk from "redux-thunk";
-import Auth from "./views/auth/auth";
+import App from "./App";
 
 const Store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
-const Routing = (
+const Application = (
     <Provider store={Store}>
-        <Router>
-            <div>
-                <Switch>
-                    <Route exact path="/" component={Auth} />
-                </Switch>
-            </div>
-        </Router>
+        <App/>
     </Provider>
 )
 
-ReactDOM.render(Routing, document.getElementById('root'));
+ReactDOM.render(Application, document.getElementById('root'));
 
 serviceWorker.unregister();

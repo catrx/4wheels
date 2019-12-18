@@ -13,10 +13,11 @@ import {
 
 import './auth.css'
 import Logo from "../../components/logo/logo";
+import {Link} from "react-router-dom";
 
 const Auth = () => {
   return (
-    <Container className="container">
+    <Container className="auth-container">
       <Row>
         <Col sm="col-sm-12 col-md-5 offset-md-3">
           <Card body>
@@ -35,7 +36,11 @@ const Auth = () => {
                   </InputGroupAddon>
                   <Input placeholder="password" />
               </InputGroup>
-            <Button className="mb-3">Connexion</Button>
+              <div className="text-center">
+              <Link to="/index">
+                  <Button className="mb-3">Connexion</Button>
+              </Link>
+              </div>
               <a href="#" className="text-center">Vous n'avez pas de compte ?</a>
           </Card>
         </Col>

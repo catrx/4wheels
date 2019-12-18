@@ -1,9 +1,12 @@
 import React from 'react';
-import Index from "./views/index";
+import {BrowserRouter} from "react-router-dom";
+import {UserRoutes} from "./router/user_routes";
 
 function App() {
   return (
-    <Index/>
+      <BrowserRouter>
+        <UserRoutes/>
+      </BrowserRouter>
   );
 }
 

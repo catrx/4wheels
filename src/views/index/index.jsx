@@ -1,8 +1,17 @@
 import React from "react";
 import {Col, Container, Row, Button} from "reactstrap";
+import {useCategory} from "../../hooks/use_category";
 
 const Index = () => {
-    return(
+    const {category, loading} = useCategory('1')
+
+    if(loading) {
+        return null;
+    }
+
+    console.log(category)
+
+    return (
         <Container>
             <Row>
                 <Col lg="12">
@@ -14,7 +23,7 @@ const Index = () => {
                 </Col>
             </Row>
         </Container>
-    )
+    );
 }
 
 export default Index

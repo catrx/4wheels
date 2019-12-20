@@ -14,6 +14,6 @@ export const useCategories = () => {
     }, [hasReceivedAllCategories]);
     return {
         categories,
-        loading: hasReceivedAllCategories === null
+        loadingCategories: hasReceivedAllCategories === null
     };
 };

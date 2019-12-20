@@ -7,11 +7,9 @@ export const useProduct = (id) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (hasReceivedProduct === false) {
             console.debug(`[useProduct] Listening to product`);
             listenToProduct(id)(dispatch);
-        }
-    }, [hasReceivedProduct]);
+    }, []);
 
     return {
         product,

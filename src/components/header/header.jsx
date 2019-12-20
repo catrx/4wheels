@@ -17,7 +17,7 @@ export const Header = () => {
 
     const toggle = () => setIsOpen(!isOpen);
     return (
-        <Navbar color="light" light expand="md">
+        <Navbar color="dark" dark expand="md" style={{marginBottom: 20}}>
             <NavbarBrand tag={Link} to="/index">
                 <Logo size="80"/>
             </NavbarBrand>
@@ -45,7 +45,7 @@ export const Header = () => {
                         </DropdownMenu>
                     </UncontrolledDropdown>
                 </Nav>
-                <NavbarText>Simple Text</NavbarText>
+                <NavbarText>Connecté en tant que Utilisateur</NavbarText>
             </Collapse>
         </Navbar>
     );

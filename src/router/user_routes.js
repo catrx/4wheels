@@ -32,7 +32,7 @@ const LoggedRoutes = () => {
         <Route path="/index" component={Index} />
         <Route path="/products-list" component={ProductsList} />
         <Route path="/product/:id" component={Product} />
-        <Redirect from="*" to="/index" />
+        <Redirect from="*" to="/products-list" />
       </Switch>
     </>
   );

@@ -6,12 +6,13 @@ export const useProducts = () => {
     const { products, hasReceivedAllProducts } = useSelector((state) => state.product_reducer);
     const dispatch = useDispatch();
 
+
     useEffect(() => {
-        if (hasReceivedAllProducts === false) {
+        if(hasReceivedAllProducts === false) {
             console.debug(`[useProducts] Listening to products...`);
             listenToProducts()(dispatch);
         }
-    }, [hasReceivedAllProducts]);
+    }, []);
     return {
         products,
         loading: hasReceivedAllProducts === null

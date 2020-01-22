@@ -1,6 +1,13 @@
-.fix-button {
+.fix-button-produit {
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
+    right: 20px;
+    z-index: 10;
+}
+
+.fix-button-provider {
+    position: fixed;
+    bottom: 80px;
     right: 20px;
     z-index: 10;
 }

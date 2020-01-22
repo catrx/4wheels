@@ -8,11 +8,11 @@ import {
     LISTEN_TO_PRODUCTS_STARTED
 } from "./types";
 
-export const listenToProducts = () => (dispatch) => {
+export const listenToProducts = (searchUrl = '') => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PRODUCTS_STARTED
     });
-    return axios.get(`http://localhost:8081/product`)
+    return axios.get(`http://localhost:8081/product/${searchUrl}`)
         .then(res => {
             if (res.data) {
                 return dispatch({

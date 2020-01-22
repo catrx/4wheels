@@ -2,7 +2,7 @@ import {
     LISTEN_TO_PROVIDERS_RECEIVED_DATA,
     LISTEN_TO_PROVIDERS_STARTED,
     LISTEN_TO_PROVIDER_RECEIVED_DATA,
-    LISTEN_TO_PROVIDER_STARTED
+    LISTEN_TO_PROVIDER_STARTED, DATABASE_EDIT_STARTED, DATABASE_EDIT_FINISH
 } from "./types";
 import axios from "axios";
 
@@ -37,3 +37,18 @@ export const listenToProvider = (id) => (dispatch) => {
             return null;
         });
 };
+
+export const addProvider = (newProvider) => (dispatch) => {
+    dispatch({
+        type: DATABASE_EDIT_STARTED
+    });
+    return axios.post(`http://localhost:8081/provider`, newProvider)
+        .then(res => {
+            if (res) {
+                return dispatch({
+                    type: DATABASE_EDIT_FINISH
+                });
+            }
+            return null;
+        });
+}

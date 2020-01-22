@@ -1,0 +1,12 @@
+.categories {
+    display: flex;
+    align-items: center;
+}
+.category {
+    border-radius: 50px;
+    box-shadow: none;
+    margin: 10px;
+}
+.btn.category:hover {
+    box-shadow: none;
+}

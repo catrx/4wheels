@@ -38,7 +38,7 @@ export const ProductModal = ({ open, handleModal, product = null }) => {
         }
         updateProduct(product.id, newProduct)(dispatch)
         window.location.reload()
-    }, [name, stock, price, description, providers, categories, product, providerId, categoryId, handleModal])
+    }, [name, stock, price, description, providers, categories, product, providerId, categoryId, handleModal, dispatch])
 
     useEffect(() => {
         if(product) {

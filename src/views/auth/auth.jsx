@@ -37,7 +37,7 @@ const Auth = () => {
                   <Input placeholder="password" />
               </InputGroup>
               <div className="text-center">
-              <Link to="/index">
+              <Link to="/products-list">
                   <Button className="mb-3">Connexion</Button>
               </Link>
               </div>

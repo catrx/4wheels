@@ -10,9 +10,11 @@ import { Header } from "../components/header/header";
 import Index from "../views/index";
 import { ProductsList } from "../views/products_list/products_list";
 import {Product} from "../views/product/product";
+import {useSelector} from "react-redux";
 
 export const UserRoutes = () => {
-  const user = true; // en attendant l'authentification
+  const user = useSelector(state => state.user_reducer.currentUser);
+  console.log(user)
   if (!user) {
     return (
       <Switch>
@@ -28,7 +30,6 @@ const LoggedRoutes = () => {
     <>
       <Header />
       <Switch>
-        <Route path="/auth" component={Auth} />
         <Route path="/index" component={Index} />
         <Route path="/products-list" component={ProductsList} />
         <Route path="/product/:id" component={Product} />

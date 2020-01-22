@@ -7,12 +7,13 @@ import {
     LISTEN_TO_PRODUCTS_RECEIVED_DATA,
     LISTEN_TO_PRODUCTS_STARTED
 } from "./types";
+import {config} from "./utils";
 
-export const listenToProducts = (searchUrl = '') => (dispatch) => {
+export const listenToProducts = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PRODUCTS_STARTED
     });
-    return axios.get(`http://localhost:8081/product/${searchUrl}`)
+    return axios.get(`http://localhost:8081/product`, config)
         .then(res => {
             if (res.data) {
                 return dispatch({

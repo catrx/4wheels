@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import {
     Collapse, DropdownItem, DropdownMenu,
     DropdownToggle,
@@ -7,13 +7,22 @@ import {
     NavbarBrand, NavbarText,
     NavbarToggler,
     NavItem, NavLink,
+    Button,
     UncontrolledDropdown
 } from "reactstrap";
 import {Link} from "react-router-dom";
 import Logo from "../logo/logo";
+import {logoutUser} from "../../actions/user";
+import {useDispatch} from "react-redux";
 
 export const Header = () => {
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
+
+    const logout = useCallback(() => {
+        localStorage.removeItem("token")
+        logoutUser()(dispatch)
+    },[localStorage, dispatch]);
 
     const toggle = () => setIsOpen(!isOpen);
     return (
@@ -45,7 +54,9 @@ export const Header = () => {
                         </DropdownMenu>
                     </UncontrolledDropdown>
                 </Nav>
-                <NavbarText>Connecté en tant que Utilisateur</NavbarText>
+                <NavbarText>Connecté en tant que Utilisateur
+                    <Button style={{marginLeft: 5}} color="danger" onClick={logout}>Déconnexion</Button>
+                </NavbarText>
             </Collapse>
         </Navbar>
     );

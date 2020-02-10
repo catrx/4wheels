@@ -32,9 +32,7 @@ export const ProductCard = ({ product, isManage }) => {
   return (
     <>
       <Card
-        className="card-container shadow bg-white rounded"
-        style={{ cursor: isManage ? "auto" : "pointer" }}
-        id="TooltipExample"
+        className={`card-container shadow bg-white rounded ${!isManage ? 'card-hoverable' : ''}`}
         onClick={handleClick}
       >
         <img src={`https://cdn.filestackcontent.com/AwWmRHZ8TlGDVt8xpGRhAz/${product.handle}`} alt="Card image cap" width="100%" />

@@ -1,6 +1,17 @@
 .card-container {
     margin: 10px;
 }
+.card-hoverable{
+    cursor: pointer;
+    transition: 0.20s ease;
+}
+
+.card-hoverable:hover {
+    -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.34);
+    -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.34);
+    box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.34);
+    transform: scale(1.05);
+}
 
 .icon-container {
     display: flex;

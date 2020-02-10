@@ -13,10 +13,10 @@ export const CategoriesList = ({handleCategorySelected}) => {
             <div className="categories">
                 <Button className="category" value={null} onClick={handleCategorySelected}>{'Tous'}</Button>
                 {categories.map(category => (
-                    <Button className="category" value={category.name} onClick={handleCategorySelected}>{category.name}</Button>
+                    <Button key={`category_${category.id}`} className="category" value={category.name} onClick={handleCategorySelected}>{category.name}</Button>
                 ))}
                 {providers.map(provider => (
-                    <Button className="category" value={provider.denomination} onClick={handleCategorySelected}>{provider.denomination}</Button>
+                    <Button key={`provider_${provider.id}`} className="category" value={provider.denomination} onClick={handleCategorySelected}>{provider.denomination}</Button>
                 ))}
             </div>
         </ScrollContainer>

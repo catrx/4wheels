@@ -1,5 +1,5 @@
 import React from "react";
-import {Input} from "reactstrap";
+import {Input, Label} from "reactstrap";
 
 const ReactFilestack =
     typeof window !== "undefined" ? require("filestack-react").default : null;
@@ -27,6 +27,8 @@ export const FileStack = ({handle, handlePictureSave}) => {
                 ]
             }}
             customRender={({onPick}) => (
+                <>
+                <Label for="handle">Image</Label>
                 <Input
                     type="text"
                     name="handle"
@@ -34,6 +36,7 @@ export const FileStack = ({handle, handlePictureSave}) => {
                     value={handle || ""}
                     onClick={onPick}
                 />
+                </>
             )}
             onSuccess={handlePictureSave}
         />

@@ -4,13 +4,14 @@ import {
     LISTEN_TO_CATEGORY_RECEIVED_DATA,
     LISTEN_TO_CATEGORY_STARTED
 } from "./types";
-import axios from "axios";
+
+import {axios} from './utils'
 
 export const listenToCategories = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_CATEGORIES_STARTED
     });
-    return axios.get(`http://localhost:8081/category`)
+    return axios.get(`/category`)
         .then(res => {
             if (res.data) {
                 return dispatch({
@@ -26,7 +27,7 @@ export const listenToCategory = (id) => (dispatch) => {
     dispatch({
         type: LISTEN_TO_CATEGORY_STARTED
     });
-    return axios.get(`http://localhost:8081/category/${id}`)
+    return axios.get(`/category/${id}`)
         .then(res => {
             if (res.data) {
                 return dispatch({

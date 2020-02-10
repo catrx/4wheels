@@ -52,7 +52,7 @@ export const ProductsList = () => {
           <Col>
             <Row>
               {filteredProducts.map(product => (
-                <Col className="col-3">
+                <Col key={`product_${product.id}`} className="col-3">
                   <ProductCard
                     key={product.id}
                     {...{ product, isManage: false }}

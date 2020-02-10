@@ -1,4 +1,4 @@
-import axios from "axios";
+import {axios} from './utils'
 import { LOGIN_ERROR, LOGIN_USER, LOGOUT_USER } from "./types";
 
 const jwtDecode = require("jwt-decode");
@@ -6,12 +6,12 @@ const jwtDecode = require("jwt-decode");
 export const userLoginFetch = user => {
   return dispatch => {
     return axios
-      .post("http://localhost:8081/auth", user)
+      .post("/auth", user)
       .then(resp => {
         if (resp) {
           const decodedUser = jwtDecode(resp.data.token);
           console.log("succes", decodedUser);
-          localStorage.setItem("token", resp.data.token);
+          localStorage.setItem("token", `Bearer ${resp.data.token}`);
           dispatch(loginUser(decodedUser));
         }
       })

@@ -4,13 +4,13 @@ import {
     LISTEN_TO_PROVIDER_RECEIVED_DATA,
     LISTEN_TO_PROVIDER_STARTED, DATABASE_EDIT_STARTED, DATABASE_EDIT_FINISH
 } from "./types";
-import axios from "axios";
+import {axios} from './utils'
 
 export const listenToProviders = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PROVIDERS_STARTED
     });
-    return axios.get(`http://localhost:8081/provider`)
+    return axios.get(`/provider`)
         .then(res => {
             if (res.data) {
                 return dispatch({
@@ -26,7 +26,7 @@ export const listenToProvider = (id) => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PROVIDER_STARTED
     });
-    return axios.get(`http://localhost:8081/provider/${id}`)
+    return axios.get(`/provider/${id}`)
         .then(res => {
             if (res.data) {
                 return dispatch({
@@ -42,7 +42,7 @@ export const addProvider = (newProvider) => (dispatch) => {
     dispatch({
         type: DATABASE_EDIT_STARTED
     });
-    return axios.post(`http://localhost:8081/provider`, newProvider)
+    return axios.post(`/provider`, newProvider)
         .then(res => {
             if (res) {
                 return dispatch({

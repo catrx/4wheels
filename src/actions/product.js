@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
     DATABASE_EDIT_FINISH,
     DATABASE_EDIT_STARTED,
@@ -7,13 +6,14 @@ import {
     LISTEN_TO_PRODUCTS_RECEIVED_DATA,
     LISTEN_TO_PRODUCTS_STARTED
 } from "./types";
-import {config} from "./utils";
+
+import {axios} from './utils'
 
 export const listenToProducts = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PRODUCTS_STARTED
     });
-    return axios.get(`http://localhost:8081/product`, config)
+    return axios.get(`/product`)
         .then(res => {
             if (res.data) {
                 return dispatch({
@@ -29,7 +29,7 @@ export const listenToProduct = (id) => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PRODUCT_STARTED
     });
-    return axios.get(`http://localhost:8081/product/${id}`)
+    return axios.get(`/product/${id}`)
         .then(res => {
             if (res.data) {
                 return dispatch({

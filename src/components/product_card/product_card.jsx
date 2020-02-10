@@ -37,7 +37,7 @@ export const ProductCard = ({ product, isManage }) => {
         id="TooltipExample"
         onClick={handleClick}
       >
-        <img src={logo} alt="Card image cap" width="100%" />
+        <img src={`https://cdn.filestackcontent.com/AwWmRHZ8TlGDVt8xpGRhAz/${product.handle}`} alt="Card image cap" width="100%" />
         <CardBody>
           <Container fluid={true}>
             <Row>

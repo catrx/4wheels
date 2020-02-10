@@ -17,7 +17,6 @@ import {ProductForm} from "./product_form/product_form";
 import {ProviderForm} from "./provider_form/provider_form";
 
 export const ProductsListModal = ({open, handleModal, type}) => {
-    console.log(type)
     return (
         <div>
             <Modal isOpen={open} toggle={handleModal}>

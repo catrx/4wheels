@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import {useCategories} from "../../../../hooks/use_categories";
 import {useProviders} from "../../../../hooks/use_providers";
 import {addProduct} from "../../../../actions/product";
+import {FileStack} from "../../../../components/filestack/filestack";
 
 export const ProductForm = () => {
     const dispatch = useDispatch();
@@ -13,10 +14,17 @@ export const ProductForm = () => {
     const [price, setPrice] = useState("");
     const [stock, setStock] = useState("");
     const [description, setDescription] = useState("");
+    const [handle, setHandle] = useState("");
     const [categoryName] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [providerDenomination] = useState("");
     const [providerId, setProviderId] = useState("");
+
+    const handlePictureSave = useCallback((result) => {
+        const pictureHandle = result.filesUploaded[0].handle
+        setHandle(pictureHandle);
+    }, []);
+
     const confirmProduct = useCallback(() => {
         const newProduct = {
             name: name,
@@ -28,7 +36,8 @@ export const ProductForm = () => {
             )[0],
             category: categories.filter(
                 category => category.id === parseInt(categoryId)
-            )[0]
+            )[0],
+            handle
         };
         addProduct(newProduct)(dispatch);
         window.location.reload();
@@ -41,6 +50,7 @@ export const ProductForm = () => {
         categories,
         providerId,
         categoryId,
+        handle,
         dispatch
     ]);
 
@@ -120,6 +130,9 @@ export const ProductForm = () => {
                     onChange={e => setDescription(e.target.value)}
                     value={description}
                 />
+            </FormGroup>
+            <FormGroup>
+                <FileStack {...{handle, handlePictureSave}} />
             </FormGroup>
             <Button
                 color="primary"

@@ -36,11 +36,13 @@ export const ProductModal = ({ open, handleModal, product = null }) => {
             price: parseFloat(price),
             description: description,
             provider: providers.filter(provider => provider.id === parseInt(providerId))[0],
-            category: categories.filter(category => category.id === parseInt(categoryId))[0]
+            category: categories.filter(category => category.id === parseInt(categoryId))[0],
+            handle
         }
+        console.log(newProduct);
         updateProduct(product.id, newProduct)(dispatch)
-        window.location.reload()
-    }, [name, stock, price, description, providers, categories, product, providerId, categoryId, handleModal, dispatch])
+        // window.location.reload()
+    }, [name, stock, price, description, providers, categories, product, providerId, categoryId, handleModal, dispatch, handle])
 
     const handlePictureSave = useCallback((result) => {
         const pictureHandle = result.filesUploaded[0].handle

@@ -83,16 +83,18 @@ export const ProductCard = ({ product, isManage }) => {
                 </Row>
                 <Row>
                   <Col>
-                    <>
-                      <Button
-                        color="info"
-                        className="float-right"
-                        onClick={handleModal}
-                      >
-                        Editer
-                      </Button>
-                      <ProductModal {...{product}} open={open} handleModal={handleModal} />
-                    </>
+                    {localStorage.role === 'ROLE_ADMIN' && (
+                        <>
+                          <Button
+                              color="info"
+                              className="float-right"
+                              onClick={handleModal}
+                          >
+                            Editer
+                          </Button>
+                          <ProductModal {...{product}} open={open} handleModal={handleModal} />
+                        </>
+                    )}
                   </Col>
                 </Row>
               </>

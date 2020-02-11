@@ -13,7 +13,7 @@ import {
 import {Link} from "react-router-dom";
 import Logo from "../logo/logo";
 import {logoutUser} from "../../actions/user";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 export const Header = () => {
     const dispatch = useDispatch();
@@ -54,7 +54,7 @@ export const Header = () => {
                         </DropdownMenu>
                     </UncontrolledDropdown>
                 </Nav>
-                <NavbarText>Connecté en tant que Utilisateur
+                <NavbarText>Connecté en tant que {localStorage.role === 'ROLE_ADMIN'? 'Gestionnaire': 'Utilisateur' }
                     <Button style={{marginLeft: 5}} color="danger" onClick={logout}>Déconnexion</Button>
                 </NavbarText>
             </Collapse>

@@ -27,7 +27,7 @@ const Auth = () => {
             password
         };
         userLoginFetch(userObj)(dispatch);
-    }, [email, password]);
+    }, [email, password, dispatch]);
     return (
         <Container className="auth-container">
             <Row>

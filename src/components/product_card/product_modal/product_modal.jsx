@@ -17,8 +17,8 @@ import {FileStack} from "../../filestack/filestack";
 
 export const ProductModal = ({ open, handleModal, product = null }) => {
     const dispatch = useDispatch();
-  const { categories, loadingCategories } = useCategories();
-  const { providers, loadingProviders } = useProviders();
+  const { categories } = useCategories();
+  const { providers } = useProviders();
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [stock, setStock] = useState('');
@@ -39,9 +39,8 @@ export const ProductModal = ({ open, handleModal, product = null }) => {
             category: categories.filter(category => category.id === parseInt(categoryId))[0],
             handle
         }
-        console.log(newProduct);
         updateProduct(product.id, newProduct)(dispatch)
-        // window.location.reload()
+        window.location.reload()
     }, [name, stock, price, description, providers, categories, product, providerId, categoryId, handleModal, dispatch, handle])
 
     const handlePictureSave = useCallback((result) => {

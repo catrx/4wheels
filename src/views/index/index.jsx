@@ -9,8 +9,6 @@ const Index = () => {
         return null;
     }
 
-    console.log(category)
-
     return (
         <Container>
             <Row>

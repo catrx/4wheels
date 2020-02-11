@@ -10,7 +10,6 @@ import {
   Row
 } from "reactstrap";
 import "./product_card.css";
-import logo from "../../assets/pictures/car-default.jpg";
 import { MdEuroSymbol, MdDriveEta, MdStyle } from "react-icons/md";
 import { useHistory } from "react-router";
 import { ProductModal } from "./product_modal/product_modal";
@@ -35,7 +34,7 @@ export const ProductCard = ({ product, isManage }) => {
         className={`card-container shadow bg-white rounded ${!isManage ? 'card-hoverable' : ''}`}
         onClick={handleClick}
       >
-        <img src={`https://cdn.filestackcontent.com/AwWmRHZ8TlGDVt8xpGRhAz/${product.handle}`} alt="Card image cap" width="100%" />
+        <img src={`https://cdn.filestackcontent.com/AwWmRHZ8TlGDVt8xpGRhAz/${product.handle}`} alt="Card image cap" width="100%" height={ isManage? '100%': 150} />
         <CardBody>
           <Container fluid={true}>
             <Row>

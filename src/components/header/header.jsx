@@ -25,7 +25,7 @@ export const Header = () => {
     const toggle = () => setIsOpen(!isOpen);
     return (
         <Navbar color="dark" dark expand="md" style={{marginBottom: 20}}>
-            <NavbarBrand tag={Link} to="/index">
+            <NavbarBrand tag={Link} to="/products-list">
                 <Logo size="80"/>
             </NavbarBrand>
             <NavbarToggler onClick={toggle}/>

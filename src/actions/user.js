@@ -12,7 +12,7 @@ export const userLoginFetch = user => {
           const decodedUser = jwtDecode(resp.data.token);
           console.log("succes", decodedUser);
           localStorage.setItem("token", `Bearer ${resp.data.token}`);
-          dispatch(loginUser(decodedUser));
+          return dispatch(loginUser(decodedUser));
         }
       })
       .catch(() => {
@@ -24,13 +24,16 @@ export const userLoginFetch = user => {
   };
 };
 
-const loginUser = userObj => ({
-  type: LOGIN_USER,
-  user: {
-    email: userObj.sub,
-    role: userObj.AUTHORITIES_KEY
-  }
-});
+const loginUser = userObj => {
+  localStorage.setItem("role", userObj.AUTHORITIES_KEY);
+  return ({
+    type: LOGIN_USER,
+    user: {
+      email: userObj.sub,
+      role: userObj.AUTHORITIES_KEY
+    }
+  });
+};
 
 export const logoutUser = () => {
   return dispatch => {

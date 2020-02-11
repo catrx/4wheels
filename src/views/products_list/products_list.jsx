@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useMemo} from "react";
+import React, {useCallback, useState, useMemo, useEffect} from "react";
 import {Button, Col, Container, Row} from "reactstrap";
 import {ProductCard} from "../../components/product_card/product_card";
 import {useProducts} from "../../hooks/use_products";
@@ -6,17 +6,14 @@ import "./products_list.css";
 import {ProductsListModal} from "./products_list_modal/products_list_modal";
 import {CategoriesList} from "../../components/categories_list/categories_list";
 import {SearchBar} from "./search_bar/search_bar";
-import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 export const ProductsList = () => {
+    const dispatch = useDispatch();
     const [open, setModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [type, setType] = useState();
     const {products, loading} = useProducts();
-
-    const currentUser = useSelector(state => console.log(state));
-
-    console.log(currentUser, "lol");
 
     const handleCategorySelected = useCallback(e => {
         setSearchTerm(e.target.value);
@@ -70,23 +67,25 @@ export const ProductsList = () => {
                     </Col>
                 </Row>
             </Container>
-            <>
-                <Button
-                    className="fix-button-produit shadow rounded"
-                    color="info"
-                    onClick={e => handleModal("produit")}
-                >
-                    Ajouter un produit
-                </Button>
-                <Button
-                    className="fix-button-provider shadow rounded"
-                    color="info"
-                    onClick={e => handleModal("fournisseur")}
-                >
-                    Ajouter un fournisseur
-                </Button>
-                <ProductsListModal open={open} handleModal={handleModal} type={type}/>
-            </>
+            {localStorage.role === 'ROLE_ADMIN' && (
+                <>
+                    <Button
+                        className="fix-button-produit shadow rounded"
+                        color="info"
+                        onClick={e => handleModal("produit")}
+                    >
+                        Ajouter un produit
+                    </Button>
+                    <Button
+                        className="fix-button-provider shadow rounded"
+                        color="info"
+                        onClick={e => handleModal("fournisseur")}
+                    >
+                        Ajouter un fournisseur
+                    </Button>
+                    <ProductsListModal open={open} handleModal={handleModal} type={type}/>
+                </>
+            )}
         </>
     );
 };

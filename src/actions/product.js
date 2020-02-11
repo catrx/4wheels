@@ -15,7 +15,7 @@ export const listenToProducts = () => (dispatch) => {
     });
     return axios.get(`/product`)
         .then(res => {
-            if (res.data && localStorage.token) {
+            if (res.data) {
                 return dispatch({
                     products: res.data,
                     type: LISTEN_TO_PRODUCTS_RECEIVED_DATA

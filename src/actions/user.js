@@ -1,4 +1,4 @@
-import {axios} from './utils'
+import { axios } from "./utils";
 import { LOGIN_ERROR, LOGIN_USER, LOGOUT_USER } from "./types";
 
 const jwtDecode = require("jwt-decode");
@@ -26,13 +26,13 @@ export const userLoginFetch = user => {
 
 const loginUser = userObj => {
   localStorage.setItem("role", userObj.AUTHORITIES_KEY);
-  return ({
+  return {
     type: LOGIN_USER,
     user: {
       email: userObj.sub,
       role: userObj.AUTHORITIES_KEY
     }
-  });
+  };
 };
 
 export const logoutUser = () => {

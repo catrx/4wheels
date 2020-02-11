@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
   Redirect,
   Route,
   Switch
@@ -15,11 +14,11 @@ import {useSelector} from "react-redux";
 
 export const UserRoutes = () => {
   const user = useSelector(state => state.user_reducer.currentUser);
-  console.log(user)
   if (!user) {
     return (
       <Switch>
-        <Route component={Auth} />
+        <Route path="/auth" component={Auth} />
+        <Redirect from="*" to="/auth" />
       </Switch>
     );
   }

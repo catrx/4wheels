@@ -1,10 +1,9 @@
 import React from "react";
 import { useShippings } from "../../hooks/use_shippings";
-import { Row, Container, Col, Table } from "reactstrap";
+import { Row, Container, Table } from "reactstrap";
 
 export const Shippings = () => {
     const { shippings } = useShippings();
-    //const { shippings } = [];
     console.info(shippings);
     if (!shippings) {
         return (
@@ -18,7 +17,7 @@ export const Shippings = () => {
         return (
             <Container>
                 <Row>
-                    <Table striped>
+                    <Table bordered striped>
                         <thead>
                             <tr>
                                 <th>Produit</th>

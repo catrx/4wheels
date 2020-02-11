@@ -22,5 +22,4 @@ export const listenToShippings = () => (dispatch) => {
             }
             return null;
         });
-
 };

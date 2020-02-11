@@ -13,7 +13,7 @@ import {useSelector} from "react-redux";
 
 export const UserRoutes = () => {
   const user = useSelector(state => state.user_reducer.currentUser);
-  if (!user) {
+  if (!user || localStorage.getItem("token") === null) {
     return (
       <Switch>
         <Route path="/auth" component={Auth} />

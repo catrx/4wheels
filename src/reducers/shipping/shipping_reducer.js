@@ -5,7 +5,7 @@ import {
 
 const initialState = {
     hasReceivedAllShippings: false,
-    products: []
+    shippings: []
 };
 
 export const shipping = (state = initialState, action) => {

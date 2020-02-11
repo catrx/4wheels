@@ -10,6 +10,7 @@ import { Header } from "../components/header/header";
 import Index from "../views/index";
 import { ProductsList } from "../views/products_list/products_list";
 import {Product} from "../views/product/product";
+import {Shippings} from "../views/shippings/shippings";
 import {useSelector} from "react-redux";
 
 export const UserRoutes = () => {
@@ -33,6 +34,7 @@ const LoggedRoutes = () => {
         <Route path="/index" component={Index} />
         <Route path="/products-list" component={ProductsList} />
         <Route path="/product/:id" component={Product} />
+        <Route path="/shippings" component={Shippings} />
         <Redirect from="*" to="/products-list" />
       </Switch>
     </>

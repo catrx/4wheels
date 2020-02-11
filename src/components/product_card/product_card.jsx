@@ -7,10 +7,11 @@ import {
   CardTitle,
   Col,
   Container,
-  Row
+  Row,
+  Badge
 } from "reactstrap";
 import "./product_card.css";
-import { MdEuroSymbol, MdDriveEta, MdStyle } from "react-icons/md";
+import { MdDriveEta, MdStyle } from "react-icons/md";
 import { useHistory } from "react-router";
 import { ProductModal } from "./product_modal/product_modal";
 
@@ -24,7 +25,7 @@ export const ProductCard = ({ product, isManage }) => {
   const handleModal = () => setModal(!open);
 
   const handleClick = () => {
-    if(!isManage) {
+    if (!isManage) {
       history.push(`/product/${product.id}`);
     }
   };
@@ -34,22 +35,19 @@ export const ProductCard = ({ product, isManage }) => {
         className={`card-container shadow bg-white rounded ${!isManage ? 'card-hoverable' : ''}`}
         onClick={handleClick}
       >
-        <img src={`https://cdn.filestackcontent.com/AwWmRHZ8TlGDVt8xpGRhAz/${product.handle}`} alt="Card image cap" width="100%" height={ isManage? '100%': 150} />
+        <h4 className="mb-0 position-absolute price-badge">
+          <Badge color="warning">{product.price} €</Badge>
+        </h4>
+        <img
+          className="img-fluid"
+          src={`https://cdn.filestackcontent.com/AwWmRHZ8TlGDVt8xpGRhAz/resize=w:400,h:300,fit:crop/${product.handle}`}
+          alt={product.id}
+          width="100%"
+          height={isManage ? '100%' : 150}
+        />
         <CardBody>
           <Container fluid={true}>
-            <Row>
-              <Col>
-                <CardTitle>{product.name}</CardTitle>
-              </Col>
-              <Col>
-                <CardText>
-                  <div className="icon-container">
-                    <MdEuroSymbol className="icon" />
-                    <div>{product.price}</div>
-                  </div>
-                </CardText>
-              </Col>
-            </Row>
+            <CardTitle className="mb-0 text-center font-weight-bold">{product.name}</CardTitle>
             {isManage && (
               <>
                 <Row>
@@ -70,13 +68,13 @@ export const ProductCard = ({ product, isManage }) => {
                     </CardText>
                   </Col>
                 </Row>
-                <hr/>
-                <Row style={{marginTop: 5}}>
+                <hr />
+                <Row style={{ marginTop: 5 }}>
                   <Col>
                     <CardText>{product.description}</CardText>
                   </Col>
                 </Row>
-                <Row style={{marginTop: 5}}>
+                <Row style={{ marginTop: 5 }}>
                   <Col>
                     <CardText className="stock">reste {product.stock} véhicule(s)</CardText>
                   </Col>

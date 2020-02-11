@@ -116,8 +116,8 @@ export const ProductModal = ({ open, handleModal, product = null }) => {
                 <option defaultValue={categoryId} selected hidden disabled>
                   {categoryName}
                 </option>
-                {categories.map(category => (
-                  <option value={category.id}>{category.name}</option>
+                {categories.map((category, index) => (
+                  <option value={category.id} key={index}>{category.name}</option>
                 ))}
               </Input>
             </FormGroup>
@@ -132,8 +132,8 @@ export const ProductModal = ({ open, handleModal, product = null }) => {
                 <option defaultValue={providerId} selected hidden disabled>
                   {providerDenomination}
                 </option>
-                {providers.map(provider => (
-                  <option value={provider.id}>{provider.denomination}</option>
+                {providers.map((provider, index) => (
+                  <option value={provider.id} key={index}>{provider.denomination}</option>
                 ))}
               </Input>
             </FormGroup>

@@ -7,7 +7,7 @@ import {
     LISTEN_TO_PRODUCTS_STARTED
 } from "./types";
 
-import {axios} from './utils'
+import {axios} from './utils';
 
 export const listenToProducts = () => (dispatch) => {
     dispatch({
@@ -15,7 +15,7 @@ export const listenToProducts = () => (dispatch) => {
     });
     return axios.get(`/product`)
         .then(res => {
-            if (res.data) {
+            if (res.data && localStorage.token) {
                 return dispatch({
                     products: res.data,
                     type: LISTEN_TO_PRODUCTS_RECEIVED_DATA

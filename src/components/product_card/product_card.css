@@ -30,3 +30,8 @@
     color: gray;
     font-size: 12px;
 }
+
+.price-badge {
+    right: -10px;
+    top: -10px;
+}

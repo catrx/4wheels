@@ -1,14 +1,12 @@
 import React, {useCallback, useState} from "react";
 import {
-    Collapse, DropdownItem, DropdownMenu,
-    DropdownToggle,
+    Collapse,
     Nav,
     Navbar,
     NavbarBrand, NavbarText,
     NavbarToggler,
     NavItem, NavLink,
     Button,
-    UncontrolledDropdown
 } from "reactstrap";
 import {Link} from "react-router-dom";
 import Logo from "../logo/logo";
@@ -36,23 +34,9 @@ export const Header = () => {
                     <NavItem>
                         <NavLink tag={Link} to="/products-list">Produits</NavLink>
                     </NavItem>
-                    <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret>
-                            Options
-                        </DropdownToggle>
-                        <DropdownMenu right>
-                            <DropdownItem>
-                                Option 1
-                            </DropdownItem>
-                            <DropdownItem>
-                                Option 2
-                            </DropdownItem>
-                            <DropdownItem divider/>
-                            <DropdownItem>
-                                Reset
-                            </DropdownItem>
-                        </DropdownMenu>
-                    </UncontrolledDropdown>
+                    <NavItem>
+                        <NavLink tag={Link} to="/shippings">Transactions</NavLink>
+                    </NavItem>
                 </Nav>
                 <NavbarText>Connecté en tant que Utilisateur
                     <Button style={{marginLeft: 5}} color="danger" onClick={logout}>Déconnexion</Button>

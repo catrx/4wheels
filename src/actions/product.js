@@ -7,7 +7,7 @@ import {
     LISTEN_TO_PRODUCTS_STARTED
 } from "./types";
 
-import {axios} from './utils'
+import { axios } from './utils'
 
 export const listenToProducts = () => (dispatch) => {
     dispatch({

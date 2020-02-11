@@ -19,7 +19,7 @@ export const shipping = (state = initialState, action) => {
             return {
                 ...state,
                 hasReceivedAllShippings: true,
-                products: action.shippings
+                shippings: action.shippings
             };
         default:
             return state;

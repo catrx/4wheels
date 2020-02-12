@@ -11,7 +11,7 @@ export const useProviders = () => {
             console.debug(`[useProducts] Listening to products...`);
             listenToProviders()(dispatch);
         }
-    }, [hasReceivedAllProviders]);
+    }, [hasReceivedAllProviders, dispatch]);
     return {
         providers,
         loadingProviders: hasReceivedAllProviders === null

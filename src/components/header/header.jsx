@@ -11,7 +11,7 @@ import {
 import {Link} from "react-router-dom";
 import Logo from "../logo/logo";
 import {logoutUser} from "../../actions/user";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 export const Header = () => {
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export const Header = () => {
     const logout = useCallback(() => {
         localStorage.removeItem("token")
         logoutUser()(dispatch)
-    },[localStorage, dispatch]);
+    },[ dispatch]);
 
     const toggle = () => setIsOpen(!isOpen);
     return (

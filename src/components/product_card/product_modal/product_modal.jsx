@@ -1,16 +1,7 @@
 import React, {useCallback, useEffect, useState} from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Input,
-  Label
-} from "reactstrap";
-import { useCategories } from "../../../hooks/use_categories";
-import { useProviders } from "../../../hooks/use_providers";
+import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
+import {useCategories} from "../../../hooks/use_categories";
+import {useProviders} from "../../../hooks/use_providers";
 import {useDispatch} from "react-redux";
 import {updateProduct} from "../../../actions/product";
 import {FileStack} from "../../filestack/filestack";
@@ -41,7 +32,7 @@ export const ProductModal = ({ open, handleModal, product = null }) => {
         }
         updateProduct(newProduct)(dispatch)
         window.location.reload()
-    }, [name, stock, price, description, providers, categories, product, providerId, categoryId, handleModal, dispatch, handle])
+    }, [name, stock, price, description, providers, categories, product, providerId, categoryId, dispatch, handle])
 
     const handlePictureSave = useCallback((result) => {
         const pictureHandle = result.filesUploaded[0].handle

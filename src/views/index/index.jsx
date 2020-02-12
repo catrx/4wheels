@@ -1,13 +1,7 @@
 import React from "react";
 import {Col, Container, Row, Button} from "reactstrap";
-import {useCategory} from "../../hooks/use_category";
 
 const Index = () => {
-    const {category, loading} = useCategory('1')
-
-    if(loading) {
-        return null;
-    }
 
     return (
         <Container>

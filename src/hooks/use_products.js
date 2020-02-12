@@ -12,7 +12,7 @@ export const useProducts = () => {
             console.debug(`[useProducts] Listening to products...`);
             listenToProducts()(dispatch);
         }
-    }, []);
+    }, [dispatch, hasReceivedAllProducts]);
     return {
         products,
         loading: hasReceivedAllProducts === null

@@ -11,7 +11,7 @@ export const useCategories = () => {
             console.debug(`[useCategories] Listening to categories...`);
             listenToCategories()(dispatch);
         }
-    }, [hasReceivedAllCategories]);
+    }, [hasReceivedAllCategories, dispatch]);
     return {
         categories,
         loadingCategories: hasReceivedAllCategories === null

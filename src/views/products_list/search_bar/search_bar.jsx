@@ -11,7 +11,7 @@ export const SearchBar = ({ handleSearch}) => {
 
     useEffect(() => {
         handleSearch(searchTerms);
-    }, [searchTerms]);
+    }, [searchTerms, handleSearch]);
 
     return (
             <Input

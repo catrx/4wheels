@@ -45,7 +45,6 @@ export const Shippings = () => {
                     </Table>
                 </Row>
             </Container>
-
         )
     }
 }

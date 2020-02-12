@@ -11,7 +11,7 @@ export const useCategory = (id) => {
             console.debug(`[useCategory] Listening to category`);
             listenToCategory(id)(dispatch);
         }
-    }, [hasReceivedCategory]);
+    }, [hasReceivedCategory, dispatch]);
 
     return {
         category,

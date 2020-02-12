@@ -9,7 +9,7 @@ export const useProduct = (id) => {
     useEffect(() => {
             console.debug(`[useProduct] Listening to product`);
             listenToProduct(id)(dispatch);
-    }, []);
+    }, [dispatch, id]);
 
     return {
         product,

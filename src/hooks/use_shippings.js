@@ -12,7 +12,7 @@ export const useShippings = () => {
             console.debug(`[useShippings] Listening to shippings...`);
             listenToShippings()(dispatch);
         }
-    }, []);
+    }, [dispatch, hasReceivedAllShippings]);
     return {
         shippings,
         loading: hasReceivedAllShippings === null

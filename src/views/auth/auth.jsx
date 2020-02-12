@@ -14,7 +14,7 @@ import {
 import "./auth.css";
 import Logo from "../../components/logo/logo";
 import { userLoginFetch } from "../../actions/user";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Auth = () => {
   const dispatch = useDispatch();

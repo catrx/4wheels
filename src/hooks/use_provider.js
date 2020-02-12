@@ -9,7 +9,7 @@ export const useProvider = (id) => {
     useEffect(() => {
         console.debug(`[useProduct] Listening to product`);
         listenToProvider(id)(dispatch);
-    }, []);
+    }, [dispatch]);
 
     return {
         provider,

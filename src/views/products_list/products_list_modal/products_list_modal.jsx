@@ -1,18 +1,5 @@
-import React, {useCallback, useState} from "react";
-import {
-    Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    Form,
-    FormGroup,
-    Input,
-    Label
-} from "reactstrap";
-import {useCategories} from "../../../hooks/use_categories";
-import {useProviders} from "../../../hooks/use_providers";
-import {useDispatch} from "react-redux";
-import {addProduct} from "../../../actions/product";
+import React from "react";
+import {Modal, ModalBody, ModalHeader} from "reactstrap";
 import {ProductForm} from "./product_form/product_form";
 import {ProviderForm} from "./provider_form/provider_form";
 

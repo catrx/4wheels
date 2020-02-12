@@ -11,10 +11,7 @@ export const listenToShippings = () => (dispatch) => {
     });
     return axios.get(`/shipping`)
         .then(res => {
-            console.log(res);
             if (res.data) {
-                console.log(res);
-                
                 return dispatch({
                     shippings: res.data,
                     type: LISTEN_TO_SHIPPINGS_RECEIVED_DATA

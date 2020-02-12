@@ -10,7 +10,6 @@ export const userLoginFetch = user => {
       .then(resp => {
         if (resp) {
           const decodedUser = jwtDecode(resp.data.token);
-          console.log("succes", decodedUser);
           localStorage.setItem("token", `Bearer ${resp.data.token}`);
           return dispatch(loginUser(decodedUser));
         }

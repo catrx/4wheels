@@ -39,7 +39,7 @@ export const ProductModal = ({ open, handleModal, product = null }) => {
             category: categories.filter(category => category.id === parseInt(categoryId))[0],
             handle
         }
-        updateProduct(product.id, newProduct)(dispatch)
+        updateProduct(newProduct)(dispatch)
         window.location.reload()
     }, [name, stock, price, description, providers, categories, product, providerId, categoryId, handleModal, dispatch, handle])
 

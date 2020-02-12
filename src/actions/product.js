@@ -41,11 +41,12 @@ export const listenToProduct = (id) => (dispatch) => {
         });
 };
 
-export const updateProduct = (id, newProduct) => (dispatch) => {
+export const updateProduct = (newProduct) => (dispatch) => {
     dispatch({
         type: DATABASE_EDIT_STARTED
     });
-    return axios.put(`http://localhost:8081/product/${id}`, newProduct)
+    console.log(newProduct);
+    return axios.put(`http://localhost:8081/product`, newProduct)
         .then(res => {
             if (res) {
                 return dispatch({

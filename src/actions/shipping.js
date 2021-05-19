@@ -9,8 +9,11 @@ export const listenToShippings = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_SHIPPINGS_STARTED
     });
-    return axios.get(`/shipping`)
-        .then(res => {
+    return axios.get(`/shipping`, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res.data) {
                 return dispatch({
                     shippings: res.data,

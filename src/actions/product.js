@@ -13,8 +13,11 @@ export const listenToProducts = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PRODUCTS_STARTED
     });
-    return axios.get(`/product`)
-        .then(res => {
+    return axios.get(`/product`,{
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res.data) {
                 return dispatch({
                     products: res.data,
@@ -29,8 +32,11 @@ export const listenToProduct = (id) => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PRODUCT_STARTED
     });
-    return axios.get(`/product/${id}`)
-        .then(res => {
+    return axios.get(`/product/${id}`, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res.data) {
                 return dispatch({
                     product: res.data,
@@ -45,9 +51,11 @@ export const updateProduct = (newProduct) => (dispatch) => {
     dispatch({
         type: DATABASE_EDIT_STARTED
     });
-    console.log(newProduct);
-    return axios.put(`http://localhost:8081/product`, newProduct)
-        .then(res => {
+    return axios.put(`http://localhost:8081/product`, newProduct, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res) {
                 return dispatch({
                     type: DATABASE_EDIT_FINISH
@@ -61,8 +69,11 @@ export const addProduct = (newProduct) => (dispatch) => {
     dispatch({
         type: DATABASE_EDIT_STARTED
     });
-    return axios.post(`http://localhost:8081/product`, newProduct)
-        .then(res => {
+    return axios.post(`http://localhost:8081/product`, newProduct, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res) {
                 return dispatch({
                     type: DATABASE_EDIT_FINISH

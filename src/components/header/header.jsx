@@ -11,11 +11,13 @@ import {
 import {Link} from "react-router-dom";
 import Logo from "../logo/logo";
 import {logoutUser} from "../../actions/user";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 export const Header = () => {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
+    const user = useSelector(state => state.user_reducer.currentUser);
+
 
     const logout = useCallback(() => {
         localStorage.removeItem("token")
@@ -34,7 +36,7 @@ export const Header = () => {
                     <NavItem>
                         <NavLink tag={Link} to="/products-list">Produits</NavLink>
                     </NavItem>
-                    {localStorage.role === 'ROLE_ADMIN' && (
+                    {user.role === 'ROLE_ADMIN' && (
                         <NavItem>
                         <NavLink tag={Link} to="/shippings">Transactions</NavLink>
                     </NavItem>

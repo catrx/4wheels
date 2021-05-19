@@ -10,8 +10,11 @@ export const listenToProviders = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PROVIDERS_STARTED
     });
-    return axios.get(`/provider`)
-        .then(res => {
+    return axios.get(`/provider`, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res.data) {
                 return dispatch({
                     providers: res.data,
@@ -26,8 +29,11 @@ export const listenToProvider = (id) => (dispatch) => {
     dispatch({
         type: LISTEN_TO_PROVIDER_STARTED
     });
-    return axios.get(`/provider/${id}`)
-        .then(res => {
+    return axios.get(`/provider/${id}`, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res.data) {
                 return dispatch({
                     provider: res.data,
@@ -42,8 +48,11 @@ export const addProvider = (newProvider) => (dispatch) => {
     dispatch({
         type: DATABASE_EDIT_STARTED
     });
-    return axios.post(`/provider`, newProvider)
-        .then(res => {
+    return axios.post(`/provider`, newProvider, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res) {
                 return dispatch({
                     type: DATABASE_EDIT_FINISH

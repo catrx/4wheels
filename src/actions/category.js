@@ -11,8 +11,11 @@ export const listenToCategories = () => (dispatch) => {
     dispatch({
         type: LISTEN_TO_CATEGORIES_STARTED
     });
-    return axios.get(`/category`)
-        .then(res => {
+    return axios.get(`/category`, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res.data) {
                 return dispatch({
                     categories: res.data,
@@ -27,8 +30,11 @@ export const listenToCategory = (id) => (dispatch) => {
     dispatch({
         type: LISTEN_TO_CATEGORY_STARTED
     });
-    return axios.get(`/category/${id}`)
-        .then(res => {
+    return axios.get(`/category/${id}`, {
+        headers: {
+            'Authorization': `${localStorage.getItem("token")}`
+        }
+    }).then(res => {
             if (res.data) {
                 return dispatch({
                     category: res.data,

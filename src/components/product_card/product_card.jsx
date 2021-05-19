@@ -15,10 +15,13 @@ import {MdDriveEta, MdStyle} from "react-icons/md";
 import {useHistory} from "react-router";
 import {ProductModal} from "./product_modal/product_modal";
 import * as jsPDF from "jspdf";
+import {useSelector} from "react-redux";
 
 export const ProductCard = ({product, isManage}) => {
     const [open, setModal] = useState(false);
     let history = useHistory();
+    const user = useSelector(state => state.user_reducer.currentUser);
+
 
     const convertToPDF = useCallback(() => {
         const pdfObject = [
@@ -38,10 +41,6 @@ export const ProductCard = ({product, isManage}) => {
         return doc.save(`product_${product.id}.pdf`);
     }, [product]);
 
-    if (!product || !product.category || !product.provider) {
-        return null;
-    }
-
     const handleModal = () => setModal(!open);
 
     const handleClick = () => {
@@ -49,6 +48,15 @@ export const ProductCard = ({product, isManage}) => {
             history.push(`/product/${product.id}`);
         }
     };
+
+    const pay = () => {
+
+    }
+
+    if (!product || !product.category || !product.provider) {
+        return null;
+    }
+
     return (
         <>
             <Card
@@ -107,7 +115,7 @@ export const ProductCard = ({product, isManage}) => {
                                 </Row>
                                 <Row>
                                     <Col>
-                                        {localStorage.role === "ROLE_ADMIN" && (
+                                        {user.role === "ROLE_ADMIN" ? (
                                             <>
                                                 <Button
                                                     color="info"
@@ -131,6 +139,14 @@ export const ProductCard = ({product, isManage}) => {
                                                     handleModal={handleModal}
                                                 />
                                             </>
+                                        ): (
+                                            <Button
+                                            color="info"
+                                            className="float-right"
+                                            onClick={pay}
+                                            >
+                                            Acheter
+                                            </Button>
                                         )}
                                     </Col>
                                 </Row>

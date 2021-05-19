@@ -26,14 +26,15 @@ export const UserRoutes = () => {
 };
 
 const LoggedRoutes = () => {
-  return (
+    const user = useSelector(state => state.user_reducer.currentUser);
+    return (
     <>
       <Header />
       <Switch>
         <Route path="/index" component={Index} />
         <Route path="/products-list" component={ProductsList} />
         <Route path="/product/:id" component={Product} />
-        {localStorage.role === 'ROLE_ADMIN' && (
+        {user.role === 'ROLE_ADMIN' && (
           <Route path="/shippings" component={Shippings} />
         )}
         <Redirect from="*" to="/products-list" />

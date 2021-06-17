@@ -15,12 +15,14 @@ import {MdDriveEta, MdStyle} from "react-icons/md";
 import {useHistory} from "react-router";
 import {ProductModal} from "./product_modal/product_modal";
 import * as jsPDF from "jspdf";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {newShipping} from "../../actions/shipping";
 
 export const ProductCard = ({product, isManage}) => {
     const [open, setModal] = useState(false);
     let history = useHistory();
     const user = useSelector(state => state.user_reducer.currentUser);
+    const dispatch = useDispatch();
 
 
     const convertToPDF = useCallback(() => {
@@ -51,6 +53,7 @@ export const ProductCard = ({product, isManage}) => {
 
     const pay = () => {
 
+        history.push(`/pay`);
     }
 
     if (!product || !product.category || !product.provider) {

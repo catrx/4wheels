@@ -4,7 +4,7 @@ import { Row, Container, Table } from "reactstrap";
 
 export const Shippings = () => {
     const { shippings } = useShippings();
-    console.info(shippings);
+
     if (!shippings) {
         return (
             <Container>

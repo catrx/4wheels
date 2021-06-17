@@ -7,7 +7,7 @@ const ReactFilestack =
 export const FileStack = ({handle, handlePictureSave}) => {
     return (
         <ReactFilestack
-            apikey="AwWmRHZ8TlGDVt8xpGRhAz"
+            apikey="AzMB6tNUrTy2TcBhBDdluz"
             buttonText="Changer la photo de profil"
             options={{
                 accept: "image/*",

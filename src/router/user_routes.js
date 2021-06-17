@@ -11,6 +11,7 @@ import { ProductsList } from "../views/products_list/products_list";
 import { Product } from "../views/product/product";
 import { Shippings } from "../views/shippings/shippings";
 import { useSelector } from "react-redux";
+import {CreditCard} from "../views/card/credit_card";
 
 export const UserRoutes = () => {
   const user = useSelector(state => state.user_reducer.currentUser);
@@ -34,9 +35,12 @@ const LoggedRoutes = () => {
         <Route path="/index" component={Index} />
         <Route path="/products-list" component={ProductsList} />
         <Route path="/product/:id" component={Product} />
-        {user.role === 'ROLE_ADMIN' && (
+        {user.role === 'ROLE_ADMIN' ? (
           <Route path="/shippings" component={Shippings} />
+        ): (
+                <Route path="/orders" component={Shippings} />
         )}
+          <Route ptah="/pay" component={CreditCard} />
         <Redirect from="*" to="/products-list" />
       </Switch>
     </>

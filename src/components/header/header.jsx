@@ -36,11 +36,15 @@ export const Header = () => {
                     <NavItem>
                         <NavLink tag={Link} to="/products-list">Produits</NavLink>
                     </NavItem>
-                    {user.role === 'ROLE_ADMIN' && (
-                        <NavItem>
+                    {user.role === 'ROLE_ADMIN' ? (
+                    <NavItem>
                         <NavLink tag={Link} to="/shippings">Transactions</NavLink>
                     </NavItem>
-                    )}
+                    ): (
+                    <NavItem>
+                        <NavLink tag={Link} to="/orders">Commandes</NavLink>
+                    </NavItem>
+                        )}
                 </Nav>
                 <NavbarText>Connecté en tant que {localStorage.role === 'ROLE_ADMIN'? 'Gestionnaire': 'Utilisateur' }
                     <Button style={{marginLeft: 5}} color="danger" onClick={logout}>Déconnexion</Button>

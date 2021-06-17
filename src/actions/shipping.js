@@ -1,6 +1,6 @@
 import {
     LISTEN_TO_SHIPPINGS_RECEIVED_DATA,
-    LISTEN_TO_SHIPPINGS_STARTED
+    LISTEN_TO_SHIPPINGS_STARTED, NEW_SHIPPING
 } from "./types";
 
 import { axios } from './utils';
@@ -22,4 +22,11 @@ export const listenToShippings = () => (dispatch) => {
             }
             return null;
         });
+};
+
+export const newShipping = (newItem) => (dispatch) => {
+    dispatch({
+        type: NEW_SHIPPING,
+        newItem: newItem
+    });
 };
